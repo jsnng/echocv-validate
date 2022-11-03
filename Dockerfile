@@ -1,4 +1,8 @@
-FROM python:2.7.18
+FROM nvidia/cuda:11.8.0-cudnn8-devel-ubuntu20.04
+RUN apt-get -y update
+RUN apt-get -y install python-dev python2.7 wget git
+RUN wget https://bootstrap.pypa.io/pip/2.7/get-pip.py
+RUN python2.7 get-pip.py
 RUN git clone https://bitbucket.org/rahuldeo/echocv.git
 WORKDIR /echocv
-# RUN cat requirements.txt | sed 's/opencv-python==3.4.2.17/opencv-contrib-python==3.4.2.17/g' | xargs -n 1 pip install
+RUN pip install -r requirements.txt
