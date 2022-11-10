@@ -1,13 +1,25 @@
 #! /usr/bin/env bash 
-
-#SBATCH --partition=a100
-#SBATCH -p cpu 
-#SBATCH -n 16 
+#
 #SBATCH --job-name=echonet
-#SBATCH --output logs/%x.%N.%j.out 
-#SBATCH --error logs/%x.%N.%j.err 
+#SBATCH --output=z.o
+#
+#SBATCH --ntasks=1
+#SBATCH --mem-per-cpu=1
+
+#SBATCH --partition=a100-dev
+
 module purge 
+module load cuda/cuda-11.0
 module load anaconda/conda3 
 
-conda activate "$(realpath .)/.echonet/"
-python dynamic/echonet.py
+
+cd /rusers/postgrad/jng1/
+source .bashrc
+
+cd echocv-validate/echonet/
+conda activate .echonet/
+
+python --version
+
+cd dynamic
+python echonet.py
