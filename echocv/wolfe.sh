@@ -1,7 +1,10 @@
 #! /usr/bin/env bash
 
 module purge
+module load cuda/cuda-10.0
 module load anaconda/conda3
+
+source ~/.bashrc
 
 git clone https://bitbucket.com/rahuldeo/echocv/src/master
 
@@ -11,4 +14,4 @@ conda activate "$(realpath .)/.echocv/"
 pip install --no-cache-dir -r master/requirements.txt
 pip install --no-cache-dir easydict==1.9
 
-#wget -O data.zip https://www.dropbox.com/sh/0tkcf7e0ljgs0b8/AACBnNiXZ7PetYeCcvb-Z9MSa?dl=0
+wget -O data.zip https://www.dropbox.com/sh/0tkcf7e0ljgs0b8/AACBnNiXZ7PetYeCcvb-Z9MSa?dl=0
