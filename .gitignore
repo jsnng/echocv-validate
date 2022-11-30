@@ -10,3 +10,6 @@ share/
 .ipynb_checkpoints/
 pyvenv.cfg
 OneDrive_1_11-11-2022/
+.vscode/
+
+*.dcm
