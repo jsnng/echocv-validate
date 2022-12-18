@@ -12,4 +12,8 @@ pyvenv.cfg
 OneDrive_1_11-11-2022/
 .vscode/
 
+__pycache__/
+.echocv/
+EchoNet-dynamic/
+
 *.dcm
